@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/redux/store";
-import { updateTask, fetchTasks } from "@/redux/taskSlice";
+import { RootState, AppDispatch } from "../../../../redux/store";
+import { updateTask, fetchTasks } from "../../../../redux/taskSlice";
 
 export default function EditTaskPage() {
   const { id } = useParams();

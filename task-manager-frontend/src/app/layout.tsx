@@ -1,7 +1,7 @@
 "use client"; // Make this a Client Component for Redux Provider
 
 import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import { store } from "../redux/store";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 

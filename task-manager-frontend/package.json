@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:ci": "jest"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
@@ -26,6 +26,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
@@ -33,6 +34,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/redux-mock-store": "^1.5.0",
+    "@types/redux-thunk": "^2.1.0",
     "babel-jest": "^29.7.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",

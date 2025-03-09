@@ -2,8 +2,8 @@
 import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTaskById, deleteTask } from "@/redux/taskSlice";
-import { RootState, AppDispatch } from "@/redux/store";
+import { fetchTaskById, deleteTask } from "../../../redux/taskSlice";
+import { RootState, AppDispatch } from "../../../redux/store";
 import Link from "next/link";
 
 export default function TaskDetailPage() {

@@ -1,22 +1,36 @@
 "use client";
+import React from "react";
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { addTask } from "@/redux/taskSlice";
+import { AppDispatch } from "../../redux/store";
+import { addTask } from "../../redux/taskSlice";
 
 export default function NewTaskPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("pending");
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{
+    title?: string;
+    description?: string;
+  }>({});
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors: { title?: string; description?: string } = {};
+
+    if (!title.trim()) newErrors.title = "Title is required!";
+    if (!description.trim()) newErrors.description = "Description is required!";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     setLoading(true);
+    setErrors({}); // Clear errors if valid
 
     try {
       await dispatch(
@@ -55,6 +69,9 @@ export default function NewTaskPage() {
               placeholder="Enter task title"
               required
             />
+            {errors.title && (
+              <p className="text-red-500 text-sm mt-1">{errors.title}</p>
+            )}
           </div>
 
           {/* Description Input */}
@@ -69,6 +86,9 @@ export default function NewTaskPage() {
               placeholder="Enter task description"
               required
             />
+            {errors.description && (
+              <p className="text-red-500 text-sm mt-1">{errors.description}</p>
+            )}
           </div>
 
           {/* Status Dropdown */}

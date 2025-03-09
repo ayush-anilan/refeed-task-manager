@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTasks } from "@/redux/taskSlice";
+import { fetchTasks } from "../redux/taskSlice";
 import Link from "next/link";
-import { RootState, AppDispatch } from "@/redux/store";
+import { RootState, AppDispatch } from "../redux/store";
 
 export default function HomePage() {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,7 +17,10 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-100 p-6">
       {/* Page Container */}
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-extrabold text-gray-800 mb-6 text-center">
+        <h1
+          className="text-3xl font-extrabold text-gray-800 mb-6 text-center"
+          data-testid="heading"
+        >
           Task Manager
         </h1>
 

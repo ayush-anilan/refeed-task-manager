@@ -19,13 +19,13 @@ const config: Config = {
   // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -91,7 +91,7 @@ const config: Config = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1", // Adjust for your path alias
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -104,7 +104,7 @@ const config: Config = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "ts-jest",
+  // preset: undefined,
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -139,7 +139,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -178,12 +178,7 @@ const config: Config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": [
-      "ts-jest",
-      {
-        tsconfig: "tsconfig.json",
-      },
-    ],
+    "^.+\\.tsx?$": "ts-jest",
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
